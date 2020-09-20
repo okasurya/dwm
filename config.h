@@ -75,6 +75,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD(SCREENSHOT) },
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("flameshot screen --path ~/screenshots") },
 	{ MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD(BROWSER) },
 	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD(FILE_EXPLORER) },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
