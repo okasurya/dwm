@@ -1,9 +1,12 @@
 /* See LICENSE file for copyright and license details. */
 
+#include "mpdcontrol.c"
+
 #define TERMINAL "st"
-#define BROWSER "chromium"
+#define BROWSER "brave"
 #define FILE_EXPLORER "caja"
 #define SCREENSHOT "flameshot gui"
+#define NETWORK_MANAGER "networkmanager_dmenu"
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
@@ -75,9 +78,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD(SCREENSHOT) },
-	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("flameshot screen --path ~/screenshots") },
 	{ MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD(BROWSER) },
 	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD(FILE_EXPLORER) },
+	{ MODKEY|ShiftMask,             XK_n,      spawn,          SHCMD(NETWORK_MANAGER) },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -117,6 +120,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY,                       XK_F1,     mpdchange,      {.i = -1 } },
+	{ MODKEY,                       XK_F2,     mpdchange,      {.i = +1 } },
+	{ MODKEY,                       XK_Escape, mpdcontrol,     { 0 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
