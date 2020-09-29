@@ -7,6 +7,9 @@
 #define FILE_EXPLORER "caja"
 #define SCREENSHOT "flameshot gui"
 #define NETWORK_MANAGER "networkmanager_dmenu"
+#define VOLUME_UP "amixer set Master 3+ && pkill -RTMIN+2 goblocks"
+#define VOLUME_DOWN "amixer set Master 3- && pkill -RTMIN+2 goblocks"
+#define VOLUME_TOGGLE "amixer set Master toggle && pkill -RTMIN+2 goblocks"
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
@@ -78,7 +81,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD(SCREENSHOT) },
-	{ MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD(BROWSER) },
+	{ MODKEY,                       XK_w,      spawn,          SHCMD(BROWSER) },
 	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD(FILE_EXPLORER) },
 	{ MODKEY|ShiftMask,             XK_n,      spawn,          SHCMD(NETWORK_MANAGER) },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
@@ -106,8 +109,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ MODKEY,                       XK_F1,     mpdchange,      {.i = -1 } },
-	{ MODKEY,                       XK_F2,     mpdchange,      {.i = +1 } },
+	{ MODKEY,                       XK_F10,     spawn,         SHCMD(VOLUME_TOGGLE) },
+	{ MODKEY,                       XK_F11,     spawn,         SHCMD(VOLUME_DOWN) },
+	{ MODKEY,                       XK_F12,     spawn,         SHCMD(VOLUME_UP) },
 	{ MODKEY,                       XK_Escape, mpdcontrol,     { 0 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
