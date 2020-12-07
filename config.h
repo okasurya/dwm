@@ -3,7 +3,7 @@
 #include "mpdcontrol.c"
 
 #define TERMINAL "st"
-#define BROWSER "brave"
+#define BROWSER "chromium"
 #define FILE_EXPLORER "caja"
 #define SCREENSHOT "flameshot gui"
 #define NETWORK_MANAGER "networkmanager_dmenu"
@@ -78,12 +78,14 @@ static const char *termcmd[]  = { "alacritty", "--command", "tmux" };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+        { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	/* { MODKEY,                       XK_p,      spawn,          SHCMD("rofi -combi-modi window,drun,ssh -font \"hack 10\" -show combi") }, */
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD(SCREENSHOT) },
 	{ MODKEY,                       XK_w,      spawn,          SHCMD(BROWSER) },
 	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD(FILE_EXPLORER) },
 	{ MODKEY|ShiftMask,             XK_n,      spawn,          SHCMD(NETWORK_MANAGER) },
+	{ MODKEY|ShiftMask,             XK_l,      spawn,          SHCMD("slock") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
