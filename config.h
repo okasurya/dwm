@@ -4,7 +4,7 @@
 
 #define TERMINAL "st"
 #define BROWSER "chromium"
-#define FILE_EXPLORER "caja"
+#define FILE_EXPLORER "nautilus"
 #define SCREENSHOT "flameshot gui"
 #define NETWORK_MANAGER "networkmanager_dmenu"
 #define VOLUME_UP "amixer set Master 3+ && pkill -RTMIN+2 goblocks"
