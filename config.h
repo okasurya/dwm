@@ -3,7 +3,7 @@
 #include "mpdcontrol.c"
 
 #define TERMINAL "st"
-#define BROWSER "chromium"
+#define BROWSER "google-chrome-stable"
 #define FILE_EXPLORER "nautilus"
 #define SCREENSHOT "flameshot gui"
 #define NETWORK_MANAGER "networkmanager_dmenu"
