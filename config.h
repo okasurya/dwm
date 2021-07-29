@@ -10,6 +10,7 @@
 #define VOLUME_UP "amixer set Master 3+ && pkill -RTMIN+2 goblocks"
 #define VOLUME_DOWN "amixer set Master 3- && pkill -RTMIN+2 goblocks"
 #define VOLUME_TOGGLE "amixer set Master toggle && pkill -RTMIN+2 goblocks"
+#define ROFI_RUN "rofi -run-list-command \". ~/bin/alias.sh\" -run-command \"/bin/zsh -i -c '{cmd}'\" -show"
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
@@ -98,6 +99,7 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
         /* { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } }, */
 	{ MODKEY,                       XK_p,      spawn,          {.v = roficmd} },
+	{ MODKEY,                       XK_r,      spawn,          SHCMD(ROFI_RUN) },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD(SCREENSHOT) },
 	{ MODKEY,                       XK_w,      spawn,          SHCMD(BROWSER) },
