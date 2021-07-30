@@ -6,11 +6,12 @@
 #define BROWSER "google-chrome-stable"
 #define FILE_EXPLORER "nautilus"
 #define SCREENSHOT "flameshot gui"
+#define FULLSS "flameshot full -c -p ~/screenshots"
 #define NETWORK_MANAGER "networkmanager_dmenu"
 #define VOLUME_UP "amixer set Master 3+ && pkill -RTMIN+2 goblocks"
 #define VOLUME_DOWN "amixer set Master 3- && pkill -RTMIN+2 goblocks"
 #define VOLUME_TOGGLE "amixer set Master toggle && pkill -RTMIN+2 goblocks"
-#define ROFI_RUN "rofi -run-list-command \". ~/bin/alias.sh\" -run-command \"/bin/zsh -i -c '{cmd}'\" -show"
+#define ROFI_RUN "~/.rofi/run.sh"
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
@@ -102,6 +103,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_r,      spawn,          SHCMD(ROFI_RUN) },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD(SCREENSHOT) },
+	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD(FULLSS) },
 	{ MODKEY,                       XK_w,      spawn,          SHCMD(BROWSER) },
 	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD(FILE_EXPLORER) },
 	{ MODKEY|ShiftMask,             XK_n,      spawn,          SHCMD(NETWORK_MANAGER) },
