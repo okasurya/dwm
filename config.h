@@ -14,7 +14,7 @@
 #define ROFI_RUN "~/.rofi/run.sh"
 
 /* appearance */
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int gappih    = 10;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 10;       /* vert inner gap between windows */
@@ -31,10 +31,12 @@ static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#2a4158";
 static const char col_selborder[]   = "#fe9635";
+static const char col_white[]       = "#ffffff";
+static const char col_gray5[]       = "#a89984";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_gray2,  col_selborder },
+	[SchemeSel]  = { col_gray4, col_gray2, col_gray5 },
 };
 
 /* tagging */
