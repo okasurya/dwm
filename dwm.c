@@ -210,12 +210,6 @@ static void setfocus(Client *c);
 static void setfullscreen(Client *c, int fullscreen);
 static void setgaps(int oh, int ov, int ih, int iv);
 static void incrgaps(const Arg *arg);
-static void incrigaps(const Arg *arg);
-static void incrogaps(const Arg *arg);
-static void incrohgaps(const Arg *arg);
-static void incrovgaps(const Arg *arg);
-static void incrihgaps(const Arg *arg);
-static void incrivgaps(const Arg *arg);
 static void togglegaps(const Arg *arg);
 static void defaultgaps(const Arg *arg);
 static void setlayout(const Arg *arg);
@@ -254,7 +248,7 @@ static int xerrorstart(Display *dpy, XErrorEvent *ee);
 static void zoom(const Arg *arg);
 static void bstack(Monitor *m);
 static void bstackhoriz(Monitor *m);
-static void col(Monitor *);
+static void col(Monitor *m);
 
 /* variables */
 static const char broken[] = "broken";
@@ -1625,72 +1619,6 @@ incrgaps(const Arg *arg)
 		selmon->gappoh + arg->i,
 		selmon->gappov + arg->i,
 		selmon->gappih + arg->i,
-		selmon->gappiv + arg->i
-	);
-}
-
-void
-incrigaps(const Arg *arg)
-{
-	setgaps(
-		selmon->gappoh,
-		selmon->gappov,
-		selmon->gappih + arg->i,
-		selmon->gappiv + arg->i
-	);
-}
-
-void
-incrogaps(const Arg *arg)
-{
-	setgaps(
-		selmon->gappoh + arg->i,
-		selmon->gappov + arg->i,
-		selmon->gappih,
-		selmon->gappiv
-	);
-}
-
-void
-incrohgaps(const Arg *arg)
-{
-	setgaps(
-		selmon->gappoh + arg->i,
-		selmon->gappov,
-		selmon->gappih,
-		selmon->gappiv
-	);
-}
-
-void
-incrovgaps(const Arg *arg)
-{
-	setgaps(
-		selmon->gappoh,
-		selmon->gappov + arg->i,
-		selmon->gappih,
-		selmon->gappiv
-	);
-}
-
-void
-incrihgaps(const Arg *arg)
-{
-	setgaps(
-		selmon->gappoh,
-		selmon->gappov,
-		selmon->gappih + arg->i,
-		selmon->gappiv
-	);
-}
-
-void
-incrivgaps(const Arg *arg)
-{
-	setgaps(
-		selmon->gappoh,
-		selmon->gappov,
-		selmon->gappih,
 		selmon->gappiv + arg->i
 	);
 }
