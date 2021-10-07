@@ -81,6 +81,7 @@ static const Layout layouts[] = {
 	{ "[M]",      monocle },
 	{ "TTT",      bstack },
 	{ "===",      bstackhoriz },
+	{ "|||",      col },
 };
 
 /* key definitions */
@@ -103,6 +104,7 @@ static const char *roficmd[]  = { "rofi", "-show", "combi" };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
         /* { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } }, */
+        /* START_KEYS */
 	{ MODKEY,                       XK_p,      spawn,          {.v = roficmd} },
 	{ MODKEY,                       XK_r,      spawn,          SHCMD(ROFI_RUN) },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
@@ -131,6 +133,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[4]} },
+        { MODKEY,                       XK_c,      setlayout,      {.v = &layouts[5]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
@@ -144,6 +147,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_F12,     spawn,         SHCMD(VOLUME_UP) },
 	{ MODKEY,                       XK_Escape, mpdcontrol,     { 0 } },
         { MODKEY,                       XK_n,      nametag,        {0} },
+	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+        /* END_KEYS */
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -153,7 +158,6 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
 
 /* button definitions */
