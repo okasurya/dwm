@@ -23,8 +23,8 @@ static const unsigned int gappov    = 10;       /* vert outer gap between window
 static const int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Fira Mono for Powerline:size=8:antialias=true", "JoyPixels:pixelsize=8:antialias=true:autohint=true"};
-static const char dmenufont[]       = "Fira Mono for Powerline:size=8:antialias=true";
+static const char *fonts[]          = { "Fira Mono for Powerline:size=9:antialias=true", "JoyPixels:pixelsize=9:antialias=true:autohint=true"};
+static const char dmenufont[]       = "Fira Mono for Powerline:size=9:antialias=true";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -102,6 +102,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "alacritty", "--command", "tmux" };
 static const char *roficmd[]  = { "rofi", "-show", "combi" };
+static const char *notifhistorycmd[] = {"wired", "-s", "10" };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -109,13 +110,14 @@ static Key keys[] = {
         /* START_KEYS */
 	{ MODKEY,                       XK_p,      spawn,          {.v = roficmd} },
 	{ MODKEY,                       XK_r,      spawn,          SHCMD(ROFI_RUN) },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd} },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD(SCREENSHOT) },
 	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD(FULLSS) },
 	{ MODKEY,                       XK_w,      spawn,          SHCMD(BROWSER) },
 	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD(FILE_EXPLORER) },
 	{ MODKEY|ShiftMask,             XK_n,      spawn,          SHCMD(NETWORK_MANAGER) },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          SHCMD("slock") },
+	{ MODKEY|ControlMask,           XK_grave,  spawn,          {.v = notifhistorycmd} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
