@@ -12,6 +12,7 @@
 #define VOLUME_DOWN "amixer set Master 3- && pkill -RTMIN+2 goblocks"
 #define VOLUME_TOGGLE "amixer set Master toggle && pkill -RTMIN+2 goblocks"
 #define ROFI_RUN "~/.rofi/run.sh"
+#define NOTIF_HISTORY "dunstctl history-pop"
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
@@ -67,6 +68,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "pritunl",  NULL,       NULL,       0,            1,           -1 },
 };
 
 /* layout(s) */
@@ -102,7 +104,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "alacritty", "--command", "tmux" };
 static const char *roficmd[]  = { "rofi", "-show", "combi" };
-static const char *notifhistorycmd[] = {"wired", "-s", "10" };
+static const char *notifhistorycmd[] = { "dunstctl", "history-pop" };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -117,7 +119,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD(FILE_EXPLORER) },
 	{ MODKEY|ShiftMask,             XK_n,      spawn,          SHCMD(NETWORK_MANAGER) },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          SHCMD("slock") },
-	{ MODKEY|ControlMask,           XK_grave,  spawn,          {.v = notifhistorycmd} },
+	{ MODKEY|ControlMask,           XK_grave,  spawn,          SHCMD(NOTIF_HISTORY) },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
